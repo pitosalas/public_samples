@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
+    hitimes (1.2.2)
+    hitimes (1.2.2-java)
+    timers (4.0.1)
+      hitimes
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  celluloid
+
+BUNDLED WITH
+   1.10.6
