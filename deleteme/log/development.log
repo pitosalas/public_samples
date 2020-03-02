@@ -1,0 +1,77 @@
+Started GET "/" for 127.0.0.1 at 2020-02-27 10:10:21 -0500
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "deleteme_development" does not exist
+):
+  
+activerecord (6.0.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:889:in `new_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:933:in `checkout_new_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:912:in `try_to_checkout_new_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:873:in `acquire_connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:595:in `checkout'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:439:in `connection'
+activerecord (6.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1121:in `retrieve_connection'
+activerecord (6.0.2.1) lib/active_record/connection_handling.rb:238:in `retrieve_connection'
+activerecord (6.0.2.1) lib/active_record/connection_handling.rb:206:in `connection'
+activerecord (6.0.2.1) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (460.6ms)[0m  [1m[35mCREATE DATABASE "deleteme_development" ENCODING = 'unicode'[0m
+  [1m[35m (464.0ms)[0m  [1m[35mCREATE DATABASE "deleteme_test" ENCODING = 'unicode'[0m
+  [1m[35m (46.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (40.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8299602881590726545)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200227150844)
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (222.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200227150844"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-27 15:10:46.289677"], ["updated_at", "2020-02-27 15:10:46.289677"]]
+  [1m[35m (22.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8299602881590726545)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-02-27 10:11:02 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/pitosalas/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/pitosalas/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 20.4ms | Allocations: 300)
+Completed 200 OK in 38ms (Views: 23.5ms | ActiveRecord: 0.0ms | Allocations: 1640)
+
+
