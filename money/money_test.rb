@@ -4,36 +4,36 @@ require_relative "money.rb"
 describe Money do
   it "can represent zero dollars" do
     m = Money.new(0, :dollar)
-    _(m.amount).must_equal 0
-    _(m.currency).must_equal :dollar
+    assert m.amount == 0
+    assert m.currency == :dollar
   end
 
   it "Can add money of the same currency" do
     m = Money.new(100, :dollar)
     n = Money.new(200, :dollar)
     sum = m + n
-    _(sum.currency).must_equal :dollar
-    _(sum.amount).must_equal 300
+    assert sum.currency == :dollar
+    assert sum.amount == 300
   end
 
   it "Can multiply an amount by a number" do
     m = Money.new(1000, :dollar)
     product = m * 5
-    _(product.currency).must_equal :dollar
-    _(product.amount).must_equal 5000
+    assert product.currency ==  :dollar
+    assert product.amount == 5000
   end
 
   it "Can record exchange rates" do
     Money.add_exchange_rate(:dollar, :euro, 1.1)
-    _(Money.convert(1, :dollar, :euro)).must_equal 1.1
+    assert Money.convert(1, :dollar, :euro) == 1.1 
   end
 
   it "Can convert from one unit to another" do
     Money.add_exchange_rate(:dollar, :euro, 1.1)
     doll1000 = Money.new(1000, :dollar)
     euroamount = doll1000.convert_to(:euro)
-    _(euroamount.currency).must_equal :euro
-    _(euroamount.amount).must_equal 1100
+    assert euroamount.currency ==  :euro
+    assert euroamount.amount == 1100
   end
 
   it "Can add amounts of different currencies" do
@@ -41,8 +41,8 @@ describe Money do
     dol = Money.new(1000, :dollar)
     euro = Money.new(1000, :euro)
     sum = dol + euro
-    _(sum.currency).must_equal :euro
-    _(sum.amount).must_equal 2100
+    assert sum.currency == :euro
+    assert sum.amount == 2100
   end
 
   it "Can convert money from euro to dollar also" do
@@ -50,7 +50,7 @@ describe Money do
     dol = Money.new(1000, :dollar)
     euro = Money.new(1000, :euro)
     sum = euro + dol
-    _(sum.currency).must_equal :dollar
+    assert sum.currency == :dollar
 
     # actual number according to calculator is 909.090909.... so we will have to consider roundoff
     assert_in_delta sum.amount, 1909.09
@@ -63,7 +63,7 @@ describe Money do
     euromoney = Money.new(1000, :euro)
     bitcoinmoney = Money.new(10000, :btc)
     bitcoinsum = euromoney + bitcoinmoney
-    _(bitcoinsum.currency).must_equal :btc
+    assert bitcoinsum.currency == :btc
     assert_in_delta bitcoinsum.amount, 10004.5454
   end
 
