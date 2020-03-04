@@ -1,0 +1,16 @@
+.front-page ul#remark
+ { 
+   color: red; 
+  }
+
+.front-page p {
+   font-style: italic;
+  }
+
+  p.inside {
+    color: green;
+   } 
+#remark #first {
+    padding-left:20px;
+}
+  

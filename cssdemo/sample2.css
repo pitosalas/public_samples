@@ -1,0 +1,16 @@
+p {
+  color: red;
+}
+p.intro {
+  color: green;
+  margin: 20px;
+}
+
+span.highlight {
+  color: blue;
+  margin: 15px;
+}
+
+body {
+  margin: 20px;
+}
