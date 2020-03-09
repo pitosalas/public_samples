@@ -5,7 +5,7 @@ describe Money do
   it "can represent zero dollars" do
     m = Money.new(0, :dollar)
     assert m.amount == 0
-    assert m.currency == :dollar
+    assert_equal m.currency,:usd, "expected currency usd"
   end
 
   it "Can add money of the same currency" do
@@ -67,6 +67,6 @@ describe Money do
     assert_in_delta bitcoinsum.amount, 10004.5454
   end
 
-  it "Handles unknown currencies in an intelligent way" do
-  end
+  # it "Handles unknown currencies in an intelligent way" do
+  # end
 end
