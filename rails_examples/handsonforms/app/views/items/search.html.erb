@@ -1,0 +1,22 @@
+<div class="col-md-md-offset-1 col-md-md-4">
+  <h1>Search</h1>
+  <%= form_tag(do_search_items_path, method: "get", class: "form") do %>
+
+    <div class="form-group">
+      <label>Title</label>
+      <%= text_field_tag(:title, "", class: "form-control") %>
+    </div>
+
+    <div class="form-group">
+      <label>Return matching or non-matching items</label>
+      <%= select_tag(:match_no_match,
+            options_for_select(
+            [['only matching', "match"],
+              ['only non matching', "nomatch"]
+            ]), class: "form-control") %>
+    </div>
+    <%= submit_tag("Search", class: "btn btn-default") %>
+
+    <%= render "index" %>
+  <% end %>
+</div>
