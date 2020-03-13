@@ -20,6 +20,16 @@ class CapybaraTestCase < Minitest::Test
         flunk "Error: Invalid JSON returned"
       end
     end
+
+    it "returns json include type:instructor" do
+      resp = Faraday.get("http://registrar-prod-rhel6.unet.brandeis.edu/export/export.json")
+      begin
+        body_json = JSON.parse('\"body\":' + resp.body, max_nesting: 2)
+        assert body_json.include? {"type": "instructor"}
+      rescue JSON::ParserError
+        flunk "Error: Invalid JSON returned"
+      end
+    end
   end
 end
 
