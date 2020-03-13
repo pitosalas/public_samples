@@ -1,0 +1,27 @@
+<%= form_with(model: hiring, local: true) do |form| %>
+  <% if hiring.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hiring.errors.count, "error") %> prohibited this hiring from being saved:</h2>
+
+      <ul>
+        <% hiring.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.text_field :student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.text_field :course_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
