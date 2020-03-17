@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     @items = Item.where("title LIKE ?", "%#{params[:title]}%")
   end
 
-  
   # GET /items
   # GET /items.json
   def index
