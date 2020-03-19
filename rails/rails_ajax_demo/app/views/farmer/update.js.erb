@@ -1,0 +1,9 @@
+<% if params[:commit] == "update farmer" %>
+  document.querySelector('.farmer-updated-at').innerHTML="<%= @farmer.updated_at %>";
+<% end %>
+<% if params[:commit] == "new cow" %>
+  document.querySelector('#cows-form').innerHTML="<%= escape_javascript(render 'cow/form') %>";
+<% end %>
+<% if params[:commit] == "add cow" %>
+  document.querySelector('#cows-form').innerHTML="<%= escape_javascript(render 'cow/form') %>";
+<% end %>

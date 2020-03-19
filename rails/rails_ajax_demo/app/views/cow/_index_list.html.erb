@@ -1,0 +1,3 @@
+<% @cows.each do |c| %>
+  <%= link_to c.name, farmer_cow_path(@farmer, c) %>
+<% end %>

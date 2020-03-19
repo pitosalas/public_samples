@@ -1,0 +1,15 @@
+<%= form_with model: @farmer, url: farmer_path do |form| %>
+  <p>
+    Name: <%= form.text_field :name %>
+    (updated: <span class="farmer-updated-at"><%= @farmer.updated_at %></span>)
+  </p>
+  <p>
+    Cows: <%= render 'cow/index_list' %>
+  </p>
+  <div id="cows-form">
+    <%= form.submit "new cow" %>
+  </div>
+  <p>
+    <%= form.submit "update farmer"%>
+  </p>
+<% end %>
