@@ -16,7 +16,7 @@ Runbook.book "Startup Worker" do
     step "Start the soa_publisher node" do
       server "rails@" + WORKER_SERVER_IP
       ruby_command do
-        "pwd", raw: true, ssh_config: {env: @my_env}
+        command "pwd", raw: true, ssh_config: {env: @my_env}
       end
       command "printenv | grep ER", raw: true
       command "source ~/.rvm/scripts/rvm; ruby /home/rails/soa_demo/soa_publisher_node.rb", raw:true
