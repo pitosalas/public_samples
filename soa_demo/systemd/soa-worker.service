@@ -1,0 +1,23 @@
+[Unit]
+Description=SoaPublisher
+Requires=network.target
+
+[Environment]
+
+
+[Service]
+Type=simple
+User=rails
+Group=rails
+WorkingDirectory=/home/rails/soa_demo/
+ExecStart=/bin/bash -lc 'ruby /home/rails/soa_demo/soa_subscriber_node.rb'
+TimeoutSec=30s
+RestartSec=30s
+Restart=always
+Environment=TWITTER_ACCESS_SECRET=ZYKc2DxM7ccAWT4jmiHkwRWN9MPhgwXxksNgNJtdEhOXQ
+Environment=TWITTER_ACCESS_TOKEN=49873-tAEzvYlLG2jvY7EpidimHOzL8jP8cUmOtLQLJgi3hmgn
+Environment=TWITTER_CONSUMER_KEY=hGGRoMP11v5CO71BrQL6JfScM
+Environment=TWITTER_CONSUMER_SECRET=jI0gi4TWRVa1oIyEhQ3WMv7QEpu0tYY8x7R7cDU1QLcPku3zLZ
+
+[Install]
+WantedBy=multi-user.target
