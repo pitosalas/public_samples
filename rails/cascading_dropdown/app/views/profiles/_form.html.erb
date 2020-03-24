@@ -1,0 +1,50 @@
+<script>
+window.addEventListener("load", () => {
+  console.log("L");
+  country_select = document.querySelector("select#profile_country");
+  state_select = document.querySelector("select#profile_state");
+  country_select.addEventListener('change', (event) => {
+    console.log(event.target.selectedIndex);
+    console.log(state_select);
+    state_select.innerHTML = <%= 100 %>;
+  })
+});
+</script>
+
+<%= form_with(model: profile, remote: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, data: { "background-color": "" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.select(:country, options_for_select(@country_list) ) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.select(:state, options_for_select(@state_list[0])) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
