@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 166
+  name: Cosi 166b
+  desc: A wonderful course about geeks
+  prof: Mr. Bond
+
+two:
+  number: 167
+  name: Computer Science for Poets
+  desc: The how and the why
+  prof: Mr. James
+
+three:
+  number: 199
+  name: Martinis
+  desc: The how and the why
+  prof: Mr. James
+

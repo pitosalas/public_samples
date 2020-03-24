@@ -1,0 +1,2 @@
+class Fortune < ApplicationRecord
+end
