@@ -1,12 +1,13 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  def states_by_country
+  def cities_by_country
+    @city_list = Profile::CITY_LIST[params[:id].to_i]
+    puts @city_list.inspect
     respond_to do |format|
-      format.json { render json: Profile::CITY_LIST[params[:id]] }
+      format.js { render :cities_by_country}
     end
   end
-
 
   # GET /profiles
   # GET /profiles.json
@@ -22,8 +23,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @country_list = Profile::COUNTRY_LIST
-    @state_list = Profile::CITY_LIST
-
+    @city_list = Profile::CITY_LIST[0]
     @profile = Profile.new
   end
 

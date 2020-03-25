@@ -1,14 +1,4 @@
 <script>
-window.addEventListener("load", () => {
-  console.log("L");
-  country_select = document.querySelector("select#profile_country");
-  state_select = document.querySelector("select#profile_state");
-  country_select.addEventListener('change', (event) => {
-    console.log(event.target.selectedIndex);
-    console.log(state_select);
-    state_select.innerHTML = <%= 100 %>;
-  })
-});
 </script>
 
 <%= form_with(model: profile, remote: true) do |form| %>
@@ -35,13 +25,8 @@ window.addEventListener("load", () => {
   </div>
 
   <div class="field">
-    <%= form.label :state %>
-    <%= form.select(:state, options_for_select(@state_list[0])) %>
-  </div>
-
-  <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.select(:city, options_for_select(@city_list)) %>
   </div>
 
   <div class="actions">

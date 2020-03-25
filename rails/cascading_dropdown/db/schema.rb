@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_190831) do
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "country"
-    t.string "state"
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
