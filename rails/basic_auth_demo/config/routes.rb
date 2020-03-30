@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   get 'logout', to: 'sessions#destroy'
 
-  root 'sessions#welcome'
+  root 'users#index'
+
+  get 'auth/:provider/callback', to: 'sessions#create_google'
+  get 'auth/failure', to: redirect('/')
+  # get 'logout', to: 'sessions#destroy', as: 'logout'
+
 end
