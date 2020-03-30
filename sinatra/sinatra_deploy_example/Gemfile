@@ -1,0 +1,12 @@
+# Gemfile lists the gems and version numbers required for this app
+# Note: Always type "bundle" at command line after making a chance here
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'pry-byebug'
+gem 'rake'
+gem 'byebug'
+gem 'rack-test'
+gem 'pg'
