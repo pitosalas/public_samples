@@ -212,7 +212,7 @@ DEPENDENCIES
   pry
   pry-byebug
   puma (~> 3.11)
-  rails (~> 5.2.1)
+  rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

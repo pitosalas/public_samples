@@ -6,11 +6,11 @@ class CourseTest < ActiveSupport::TestCase
   # end
   describe "With all test" do
     it "tautology works" do
-      1.must_equal 1
+      assert_equal 1, 1
     end
 
     it "should be able to find a certain course" do
-      Course.where(number: 167).size.must_equal 1
+      assert Course.where(number: 167).size == 1
     end
   end
 end
