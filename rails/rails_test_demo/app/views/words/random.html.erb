@@ -1,0 +1,9 @@
+<h3>Words Random</h3>
+A random Word:
+
+<% if !@random.nil? %>
+  Dutch: <%= @randword.ned %>
+  English: <%= @randword.eng %> 
+<% else %>
+<h4>No words yet!</h4>
+<% end %>
