@@ -1,15 +1,17 @@
 require 'benchmark'
 require_relative 'work'
+require_relative 'setup'
 
-puts "**** Theading (Big) ***"
+setup "Theading (COUNT*100)"
 threads = []
 
-puts Benchmark.measure{
-    10_000.times do |i|
-      threads << Thread.new do
-        Worker.do_cpu_work
-      end
+puts(Benchmark.measure{
+  COUNT*100.times do |i|
+    print "."
+    threads << Thread.new do
+      Worker.do_cpu_work(CPU_WORK)
     end
-    threads.map(&:join)
-}
-puts 
+  end
+  threads.map(&:join)
+})
+teardown

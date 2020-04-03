@@ -12,4 +12,4 @@ n.times do |val|
   end
 end
 threads.map(&:join)
-puts barray
+puts barray.inspect

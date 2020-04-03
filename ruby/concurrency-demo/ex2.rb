@@ -1,11 +1,15 @@
 require 'benchmark'
 require_relative 'work'
+require_relative 'setup'
 
-puts "*** Fork Processes ****"
-puts Benchmark.measure {|_x|
-  1000.times do
+setup "Fork Processes"
+puts (Benchmark.measure do |_x|
+  COUNT.times do
+    print "."
     fork do
-      Worker.do_cpu_work
+      Worker.do_cpu_work(CPU_WORK)
     end
+    Process.waitall
   end
-}
+end )
+teardown
