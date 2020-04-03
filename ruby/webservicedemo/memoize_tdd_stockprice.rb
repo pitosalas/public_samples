@@ -7,7 +7,7 @@ require 'json'
 # This code sample illustrates using an API, memoizing results, and writing unit tests.
 
 class SecurityBase
-  QUANDL_URL = "https://www.quandl.com/api/v3/datasets/WIKI/%s/data.json?order=asc&exclude_column_names=true&limit=1&column_index=4&rows=1&order=desc"
+  QUANDL_URL = "https://www.quandl.com/api/v3/datasets/WIKI/%s/data.json?order=asc&exclude_column_names=true&limit=1&column_index=4&rows=1&order=desc".freeze
 
   def self.price(secname)
     json = memoize_json(secname)
@@ -28,10 +28,10 @@ end
 
 describe SecurityBase do
   it "Can return the price of google" do
-    SecurityBase.price("GOOG").must_be :>, 0
+    assert SecurityBase.price("GOOG") > 0
   end
 
   it "Returns different prices for different stocks" do
-    (SecurityBase.price("GOOG") - SecurityBase.price("AAPL")).wont_equal 0
+    assert (SecurityBase.price("GOOG") - SecurityBase.price("AAPL")) != 0
   end
 end
