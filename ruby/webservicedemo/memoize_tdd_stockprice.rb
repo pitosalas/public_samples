@@ -11,7 +11,8 @@ class SecurityBase
 
   def self.price(secname)
     json = memoize_json(secname)
-    json["dataset_data"]["data"][0][1]
+    price = json["dataset_data"]["data"][0][1]
+    price
   end
 
   def self.memoize_json(secname)
