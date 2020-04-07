@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chat Board</h1>
+<br/><br/>
+<p>
+    <hr/>
+    <% @messages.each do |message| %>
+        <%= message.message %>
+        (<%= link_to 'Show', message %> | 
+        <%= link_to 'Edit', edit_message_path(message) %> |
+        <%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %>)
+        <hr/>
+    <% end %>
+</p>
+<%= link_to 'New Message', new_message_path %>
