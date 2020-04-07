@@ -7,18 +7,21 @@ require 'byebug'
 #
 
 person_as_json_string = '{"name": "Pito", "town": "Arlington"}'
+puts "Person record String in JSON format #{person_as_json_string}"
 person_as_ruby_hash = JSON.parse(person_as_json_string)
-puts "\n>>> Single person in JSON: #{person_as_ruby_hash}"
+puts "Result of converting that string into a Hash: #{person_as_ruby_hash}"
 
-puts "\n>>> Convert a ruby hash to json and vice versa"
+puts "******* RETURN to continue"; gets
 person_list_as_hash = '[{"name": "Pito", "town": "Arlington"},
                    {"name": "Chris", "town": "Willemstad"},
                    {"name": "Amin", "town": "Lafayette"}]'
+puts "Person list string in json format: "
+puts person_list_as_hash
 person_list_as_string = JSON.parse(person_list_as_hash)
+puts "REsult of converting it to a hash"
 puts person_list_as_string
 
-puts "\n>>> Convert from from XML to JSON - via a Ruby Hash?"
-
+puts "******* RETURN to continue"; gets
 person_as_xml_string = <<EOS
 <?xml version="1.0" encoding="UTF-8"?>
 <student>
@@ -30,12 +33,12 @@ person_as_xml_string = <<EOS
   </gender>
 </student>
 EOS
-
-xml_clean = person_as_xml_string.gsub(/\s/, '')
-xml_hash =  XmlSimple.xml_in(xml_clean, {'ForceArray' => false})
+puts "Person record String in XML format"
+puts person_as_xml_string
+puts "\nResult of converting it to a hash:"
+xml_hash = XmlSimple.xml_in(person_as_xml_string)
+puts xml_hash
+puts "\nResult of converting it back to JSON"
 xml_json = xml_hash.to_json
+puts xml_json
 
-puts "Original String: #{person_as_xml_string}"
-puts "\nCleanedInput xml string:", xml_clean
-puts "\nConverted to a hash:", xml_hash
-puts "\nConverted to a json string:", xml_json
