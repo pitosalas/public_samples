@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
+    @message = Message.new
     @messages = Message.order(:created_at)
   end
 
@@ -25,17 +26,11 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to root_path, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-        puts "************* Broadcasting"
-        ActionCable.server.broadcast("new_message", message: @message.id)
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.save
+      puts "*******Broadcasting"
+      rendered = render_to_string partial: "message", locals: { message: @message }
+      ActionCable.server.broadcast("chat_channel", content: rendered)
+    else
     end
   end
 
