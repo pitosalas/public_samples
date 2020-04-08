@@ -1,7 +1,0 @@
-<%= form_for home, remote: true, authenticity_token: true do |f| %>
-  <%= f.text_area :message, class: "form-control", cols: 50, rows: 5, data: {textarea: "messages"} %>
-  <p>
-    <%= f.hidden_field :home_id, value: home.id %>
-  </p>
-  <%= f.submit "share with collaborators", class: "btn btn-primary", data: {send: "messages"} %>
-<% end %>
