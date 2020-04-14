@@ -1,4 +1,4 @@
-COUNT = 5
+COUNT = 25
 CPU_WORK = 38
 THREADS = 50
 
