@@ -7,8 +7,8 @@ threads = []
 
 puts(Benchmark.measure {
   COUNT.times do |_i|
-    print "."
     threads << Thread.new do
+      print "."
       Worker.do_cpu_work(CPU_WORK)
     end
   end

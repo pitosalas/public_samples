@@ -5,11 +5,11 @@ require_relative 'setup'
 setup "Fork Processes"
 puts (Benchmark.measure do |_x|
   COUNT.times do
-    print "."
     fork do
+      print "."
       Worker.do_cpu_work(CPU_WORK)
     end
-    Process.waitall
   end
+  Process.waitall
 end )
 teardown
