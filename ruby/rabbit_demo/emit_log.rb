@@ -4,7 +4,7 @@
 require "bunny"
 
 msg  = ARGV.empty? ? "Hello World!" : ARGV.join(" ")
-conn = Bunny.new
+conn = Bunny.new(user: "pitosalas", pass: "daniel")
 conn.start
 
 channel = conn.create_channel

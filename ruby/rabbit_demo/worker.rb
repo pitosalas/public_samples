@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bunny"
-conn = Bunny.new
+conn = Bunny.new(user: "pitosalas", pass: "daniel")
 conn.start
 
 channel = conn.create_channel

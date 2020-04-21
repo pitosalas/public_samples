@@ -2,7 +2,7 @@
 
 require "bunny"
 
-conn = Bunny.new
+conn = Bunny.new(user: "pitosalas", pass: "daniel")
 conn.start
 
 ch   = conn.create_channel
