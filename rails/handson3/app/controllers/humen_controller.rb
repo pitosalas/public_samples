@@ -1,0 +1,2 @@
+class HumenController < ApplicationController
+end

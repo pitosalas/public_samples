@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  human_id: 1
+  event_id: 1
+  status: MyString
+  comment: MyString
+
+two:
+  human_id: 1
+  event_id: 1
+  status: MyString
+  comment: MyString
