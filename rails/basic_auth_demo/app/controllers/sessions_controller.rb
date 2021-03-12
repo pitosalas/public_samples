@@ -1,24 +1,13 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
-    user = User.find_by(name: params[:name])
-    puts user.name
-    if user && user.authenticate(params[:password])
-      log_in user
-      redirect_to user
-    else
-      flash[:danger] = 'Invalid email/password combination'
-      render 'new'
-    end
   end
 
-  def create_google
-    user = User.from_omniauth(request.env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_to root_path
+  def login
   end
 
-  def destroy
-    log_out
-    redirect_to root_url
+  def welcome
   end
 end
