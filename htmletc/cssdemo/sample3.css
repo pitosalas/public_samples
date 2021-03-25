@@ -13,4 +13,8 @@
 #remark #first {
     padding-left:20px;
 }
+
+p.indicator {
+  visibility: hidden;
+}
   
