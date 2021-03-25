@@ -1,10 +1,10 @@
 require 'json'
 
 puts "Convert from an array to Json:"
-puts [1,2,3].to_json
+puts [1, 2, 3].to_json
 
 puts "\nConvert from a hash to json:"
-puts ({ name: "Jonathan", birthday: "Dec 1, 1991" }.to_json)
+puts({name: "Jonathan", birthday: "Dec 1, 1991"}.to_json)
 
 puts "\nConvert from an arbitrary class:"
 class Car
@@ -13,7 +13,7 @@ class Car
     @model = model
   end
 
-  def to_json
+  def to_json(*_args)
     {'make' => @make, 'model' => @model}.to_json
   end
 end
@@ -30,25 +30,20 @@ name_list_hash = '[{"name": "Pito", "town": "Arlington"},
                    {"name": "Amin", "town": "Lafayette"}]'
 puts JSON.parse(name_list_hash)
 
-puts "\n*** How about converting from XML to JSON?"
-require 'xml-simple'
+puts "\n*** How about converting from XML to JSON?\n"
+require 'xmlsimple'
 
-xml = <<EOS
-<?xml version="1.0" encoding="UTF-8"?>
-<student>
-  <name>
-    Pito Salas
-  </name>
-  <gender>
-    male
-  </gender>
-</student>
+xml = <<~EOS
+  <?xml version="1.0" encoding="UTF-8"?>
+  <student>
+    <name>Pito Salas</name>
+    <gender>male</gender>
+  </student>
 EOS
 
-xml_clean = xml.gsub(/\s/, '')
-xml_hash =  XmlSimple.xml_in(xml_clean , { 'ForceArray' => false })
+xml_hash = XmlSimple.xml_in(xml, {'ForceArray' => false})
 xml_json = xml_hash.to_json
 
-puts "Input xml string:", xml_clean
-puts "\nConverted to a hash:", xml_hash
-puts "\nConverted to a json string:", xml_json
+puts "Input xml string:\n", xml
+puts "\nConverted to a hash: #{xml_hash.inspect}"
+puts "\nConverted to a json string: #{xml_json}"
