@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @item.owner %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @item.category_id %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item), type:"button", class: "btn btn-secondary" %>
+<%= link_to 'Back', items_path, type:"button", class: "btn btn-secondary" %>
+<%= link_to 'Add comment', new_item_comment_path(@item), type:"button", class: "btn btn-secondary" %>
