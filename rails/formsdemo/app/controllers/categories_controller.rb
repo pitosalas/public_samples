@@ -21,8 +21,9 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
+    puts "+++++ #{params}"
+    puts "---- #{category_params}"
     @category = Category.new(category_params)
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: "Category was successfully created." }
