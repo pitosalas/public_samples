@@ -1,0 +1,29 @@
+<h1>Listing shoes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shoes.each do |shoe| %>
+      <tr>
+        <td><%= shoe.name %></td>
+        <td><%= shoe.price %></td>
+        <td><%= link_to 'Show', shoe %></td>
+        <td><%= link_to 'Edit', edit_shoe_path(shoe) %></td>
+        <td><%= link_to 'Destroy', shoe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shoe', new_shoe_path %>
