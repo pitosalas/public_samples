@@ -30,5 +30,4 @@ describe Circle, "Circle Tests" do
       @circle.r.must_be_instance_of Float
     end
   end
-
 end

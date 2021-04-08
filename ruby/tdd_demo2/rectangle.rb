@@ -7,6 +7,6 @@ class Rectangle
   end
 
   def area()
-    return (@x.x - @y.x).abs * (@x.y - @y.y).abs
+    (@x.x - @y.x).abs * (@x.y - @y.y).abs
   end
 end
