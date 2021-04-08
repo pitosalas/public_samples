@@ -1,5 +1,5 @@
 class Point
-  attr_accessor :x,:y
+  attr_accessor :x, :y
 
   def initialize(a,b)
     @x = a.to_f
