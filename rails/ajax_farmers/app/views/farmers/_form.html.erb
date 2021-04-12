@@ -1,4 +1,4 @@
-<%= form_with model: @farmer, url: farmer_path do |form| %>
+<%= form_with model: @farmer do |form| %>
   <p>
     Name: <%= form.text_field :name %>
     (updated: <span class="farmer-updated-at"><%= @farmer.updated_at %></span>)
@@ -6,9 +6,11 @@
   <p>
     Cows: <%= render 'cows/index_list' %>
   </p>
-  <div id="cows-form">
-    <%= form.submit "new cow" %>
-  </div>
+  <% unless @farmer.new_record? %>
+    <div id="cows-form">
+      <%= form.submit "new cow" %>
+    </div>
+  <% end %>
   <p>
     <%= form.submit "update farmer"%>
   </p>

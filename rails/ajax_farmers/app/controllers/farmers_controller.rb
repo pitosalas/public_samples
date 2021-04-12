@@ -16,10 +16,12 @@ class FarmersController < ApplicationController
   # GET /farmers/new
   def new
     @farmer = Farmer.new
+    @cows = @farmer.cows
   end
 
   # GET /farmers/1/edit
   def edit
+    @cows = @farmer.cows
   end
 
   # POST /farmers
