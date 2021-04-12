@@ -42,6 +42,8 @@ function authorHover(arg) {
 //		nodeValue -- for text nodes, it's the actual text, and for attribute nodes is the attribute value
 //
 // Here are a few examples:
+a_node = document.body.childNodes[1];
+document.write("<br>ChildNode 1's textContent:" + a_node.textContent);
 
-//console.log(document.body.childNodes[1].nodeName);
-//console.log(document.body.childNodes[1].nodeValue);
+a_node = document.body.getElementsByTagName("div")[1];
+document.write("<br>Tagname div's textContent: " + a_node.textContent);
