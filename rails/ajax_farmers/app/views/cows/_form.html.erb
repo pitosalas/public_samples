@@ -1,4 +1,4 @@
-<%= form_with url: farmer_cow_path(@farmer) do |form| %>
+<%= form_with(url: farmer_cow_path(@farmer), local: false) do |form| %>
   <p>
     Cow's name: <%= form.text_field :name %>
     <%= form.submit "add cow" %>
