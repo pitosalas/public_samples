@@ -2,8 +2,8 @@ class ShowhideController < ApplicationController
   def show_hide; end
 
   def do_show
-    puts "DO SHOW!"
-    render js: "document.querySelector('#thing').style.visibility='visible';"
+    puts "******** DO SHOW! **********"
+    render js: "document.querySelecxxtor('#thing').style.visibility='visible';"
   end
 
   def do_hide
