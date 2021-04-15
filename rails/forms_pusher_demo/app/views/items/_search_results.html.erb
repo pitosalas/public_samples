@@ -1,0 +1,8 @@
+<h3>Search Results</h3>
+
+<%if @items.nil? || @items.length == 0%>
+	<p>No Matches Found</p>
+<% else %>
+	<p><%= @items.length %> matches found</p>
+	<%= render "index" %>
+<% end %>

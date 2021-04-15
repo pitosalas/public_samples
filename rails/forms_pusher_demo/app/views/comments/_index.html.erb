@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Message</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.from %></td>
+        <td><%= comment.message %></td>
+        <td><%= comment.item_id %></td>
+        <td><%= link_to 'Show', item_comment_path(@item, comment) %></td>
+        <td><%= link_to 'Edit', edit_item_comment_path(@item, comment) %></td>
+        <td><%= link_to 'Destroy', [@item, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

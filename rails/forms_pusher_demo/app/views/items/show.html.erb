@@ -1,0 +1,28 @@
+<h3>Item</h3>
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @item.owner %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @category.title %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
+
+<hr>
+<h5>Comments</h5>
+<%= render 'comments/index' %>
+<%= link_to 'New Comment', new_item_comment_path(@item) %>

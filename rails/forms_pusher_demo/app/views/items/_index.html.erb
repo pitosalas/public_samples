@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col">
+    <h2>Items</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Owner</th>
+          <th>Category</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><a href="<%= item_path(item.id) %>"><%= item.title %></a></td>
+            <td><a href="<%= item_path(item.id) %>"><%= item.description %></a></td>
+            <td><%= item.owner %></td>
+            <td><%= item.category.title %></td>
+            <td><%= link_to 'Comment', new_item_comment_path(item) %>
+                (<span id="comment-count-<%= item.id %>"><%= item.comments.size %></span>)
+            <td><%= link_to 'Show', item %></td>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
+            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

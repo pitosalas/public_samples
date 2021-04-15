@@ -1,0 +1,37 @@
+<div class="col-md-offset-1 col-md-4">
+  <h1>Search</h1>
+    <%= form_tag(do_search_items_path, method: "get", remote: true, role: "form", class: "form") do %>
+      <div class="form-group">
+        <label class="control-label">And/Or:</label>
+        <%= select_tag(:all_any,
+            options_for_select(
+              [['match all conditions', "all"],
+               ["match any conditions", "any"]]), class: "form-control") %>
+      </div>
+
+      <div class="form-group">
+        <label>Category:</label>
+        <%= select_tag(:category_id, options_for_select(@categories), class: "form-control") %>
+      </div>
+
+      <div class="form-group">
+        <label>Title</label>
+        <%= text_field_tag(:title, "", class: "form-control") %>
+      </div>
+
+      <div class="form-group">
+        <label>Return matching or non-matching items</label>
+        <%= select_tag(:match_no_match,
+              options_for_select(
+              [['only matching', "match"],
+               ['only non matching', "nomatch"]
+              ]), class: "form-control") %>
+      </div>
+
+      <%= submit_tag("Search", class: "btn btn-default" ) %>
+    <% end %>
+</div>
+<div class="row col-md-offset-1 col-md-11">
+  <div id="search_results">
+  </div>
+</div>
