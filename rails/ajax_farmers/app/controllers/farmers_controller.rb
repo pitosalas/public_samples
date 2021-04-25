@@ -77,17 +77,18 @@ class FarmersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_farmer
-      @farmer = Farmer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def farmer_params
-      params.require(:farmer).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_farmer
+    @farmer = Farmer.find(params[:id])
+  end
 
-    def which_button
+  # Only allow a list of trusted parameters through.
+  def farmer_params
+    params.require(:farmer).permit(:name)
+  end
+
+  def which_button
     if params[:commit] == "update farmer"
       :update
     elsif params[:commit] == "new cow"
@@ -95,5 +96,5 @@ class FarmersController < ApplicationController
     elsif params[:commit] == "add cow"
       :add_cow
     end
-  end  
+  end
 end
