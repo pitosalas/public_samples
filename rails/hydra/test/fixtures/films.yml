@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imdb_title_id: MyString
+  title: MyString
+  original_title: MyString
+  year: MyString
+  date_published: MyString
+  genre: MyString
+  duration: MyString
+  country: MyString
+  language: MyString
+  director: MyString
+  writer: MyString
+  production_company: MyString
+  actors: MyString
+  description: MyString
+  avg_vote: MyString
+  votes: MyString
+  budget: MyString
+  usa_gross_income: MyString
+  worlwide_gross_income: MyString
+  metascore: MyString
+  reviews_from_users: MyString
+  reviews_from_critics: MyString
+
+two:
+  imdb_title_id: MyString
+  title: MyString
+  original_title: MyString
+  year: MyString
+  date_published: MyString
+  genre: MyString
+  duration: MyString
+  country: MyString
+  language: MyString
+  director: MyString
+  writer: MyString
+  production_company: MyString
+  actors: MyString
+  description: MyString
+  avg_vote: MyString
+  votes: MyString
+  budget: MyString
+  usa_gross_income: MyString
+  worlwide_gross_income: MyString
+  metascore: MyString
+  reviews_from_users: MyString
+  reviews_from_critics: MyString
