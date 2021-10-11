@@ -16,14 +16,14 @@ require 'ruby-progressbar'
 # https://github.com/zdennis/activerecord-import
 require 'activerecord-import'
 
-# chunks_movies = SmarterCSV.process("db/movie_data.csv", chunk_size: 500)
-# Parallel.each(chunks_movies, in_processes: 10, progress: "Importing Data") do |chunk|
-#   Movie.create!(chunk)
-# end
-
-chunks_films = SmarterCSV.process("db/imdbmovies.csv", chunk_size: 1000)
-Parallel.each(chunks_films, in_processes: 5, progress: "Importing Data") do |chunk|
-  chunk.group_by(&:keys).each_value do |subchunk|
-    Film.import(subchunk)
-  end
+chunks_movies = SmarterCSV.process("db/movie_data.csv", chunk_size: 500)
+Parallel.each(chunks_movies, in_processes: 10, progress: "Importing Data") do |chunk|
+  Movie.create!(chunk)
 end
+
+# chunks_films = SmarterCSV.process("db/imdbmovies.csv", chunk_size: 1000)
+# Parallel.each(chunks_films, in_processes: 5, progress: "Importing Data") do |chunk|
+#   chunk.group_by(&:keys).each_value do |subchunk|
+#     Film.import(subchunk)
+#   end
+# end
