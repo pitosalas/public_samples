@@ -3,7 +3,7 @@ class Space
   attr_accessor :is_free
 
   def initialize(coded_space)
-    @free = true
+    @is_free = true
     @charging_station = "C".include? coded_space
     @ok_for_suv = "S".include? coded_space
   end
@@ -17,7 +17,7 @@ class Space
   end
 
   def occupied?
-    !is_free?
+    !is_free
   end
 
   def occupying_car
@@ -26,7 +26,7 @@ class Space
 
   def park_car car
     @car = car
-    @free = false
+    @is_free = false
   end
 
 end

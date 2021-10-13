@@ -16,6 +16,10 @@ describe "Garage Test" do
     @c1.expect(:is_suv, false)
   end
 
+  it "creates spaces in the right way" do
+    assert_equal(@g1.space(0,0).class, Space)
+  end
+
   it "can create garages with levels" do
     assert_equal @g1.total_spaces, 4
     assert_equal @g1.total_floors, 1
@@ -35,7 +39,7 @@ describe "Garage Test" do
   it "can park a car" do
     space = @g1.find_parking_space(@c1)
     free_spaces = @g1.free_spaces
-    space.park(@c1)
+    space.park_car(@c1)
     assert_equal @g1.free_spaces, free_spaces - 1
   end
 end

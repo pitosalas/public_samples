@@ -19,7 +19,6 @@ class Garage
     count
   end
 
-
   def total_floors
     @floors.length
   end
@@ -34,7 +33,7 @@ class Garage
   def find_free_space(is_electric, is_suv)
     @floors.each do |floor|
       floor.each do |space|
-        if space.is_free && space.suv? == is_suv && space.electric? == is_electric
+        if space.is_free && space.ok_for_suv? == is_suv && space.charging_station? == is_electric
           return space
         end
       end
@@ -47,6 +46,10 @@ class Garage
     if space
       space.park_car(car)
     end
+  end
+
+  def space(floor, number)
+    @floors[floor][number]
   end
 
   private
