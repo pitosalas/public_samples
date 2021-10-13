@@ -1,10 +1,10 @@
 require_relative 'space'
+require_relative 'car'
 
 class Garage
-  def initialize(floor:, space:)
-    @floor_count = floor
-    @space_count = space
-    @floors = create_floors(floor_count: floor, spaces_count: space)
+  def initialize(floors)
+    @floor_count = floors.length
+    @floors = floors.map { |f| create_floor(f) }
   end
 
   def total_spaces
@@ -12,45 +12,48 @@ class Garage
     @floors.each { |floor| floor.each { |space| count += 1 } }
     count
   end
-   
+
+  def free_spaces
+    count = 0
+    @floors.each { |floor| floor.each { |space| count += 1 if space.is_free } }
+    count
+  end
+
+
+  def total_floors
+    @floors.length
+  end
+
   def find_parking_space(car)
+    is_electric = car.is_electric
+    is_suv = car.is_suv
+    space = find_free_space(is_electric, is_suv)
+    space
+  end
+
+  def find_free_space(is_electric, is_suv)
+    @floors.each do |floor|
+      floor.each do |space|
+        if space.is_free && space.suv? == is_suv && space.electric? == is_electric
+          return space
+        end
+      end
+    end
     nil
   end
 
-  def park_car(car, space)
-  end
-
-  def contains_space?(space)
-    false
-  end
-
-  def locate_free_space(car)
-    nil
-  end
-
-  def set_space_property(space:, suv:, electric:)
-    space.set_sproperty(suv, electric)
+  def park(car)
+    space = find_parking_space(car)
+    if space
+      space.park_car(car)
+    end
   end
 
   private
 
-  def create_floors(floor_count:, spaces_count:)
-    floors = []
-    floor_count.times do
-      floors << create_spaces(spaces_count)
-    end
-    floors
+  def create_floor(spaces_map)
+    result = spaces_map.map { |s| Space.new(s) }
+    result
   end
-
-
-  def create_spaces(count)
-    spaces = []
-    count.times do  |space|
-      spaces << Space.new
-    end
-    spaces
-  end
-  
-
 
 end
