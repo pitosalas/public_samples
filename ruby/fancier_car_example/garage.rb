@@ -24,6 +24,7 @@ class Garage
   end
 
   def find_parking_space(car)
+    puts car.class
     is_electric = car.is_electric
     is_suv = car.is_suv
     space = find_free_space(is_electric, is_suv)
@@ -55,7 +56,7 @@ class Garage
   private
 
   def create_floor(spaces_map)
-    result = spaces_map.map { |s| Space.new(s) }
+    spaces_map.map { |s| Space.new(s) }
     result
   end
 
