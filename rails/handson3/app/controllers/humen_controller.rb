@@ -1,2 +1,0 @@
-class HumenController < ApplicationController
-end

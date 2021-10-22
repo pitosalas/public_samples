@@ -3,17 +3,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:name].downcase)
-    if user && user.authenticate(params[:password])
-      log_in user
-      redirect_to user
+    if logged_in_user
+      flash.now[:danger] = 'Invalid email/password combination'
+      redirect_back_or 'new'
     else
-      flash[:danger] = 'Invalid email/password combination'
-      render 'new'
+      redirect_to login_url
     end
   end
 
   def login
+  end
+
+  def welcome
   end
 
   def destroy
@@ -21,6 +22,4 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def welcome
-  end
 end

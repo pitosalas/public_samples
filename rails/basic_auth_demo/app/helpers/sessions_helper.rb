@@ -1,3 +1,4 @@
+# Add this to helpers/session_helper
 module SessionsHelper
   # Logs in the given user.
   def log_in(user)
@@ -19,4 +20,12 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
 end
