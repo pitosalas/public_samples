@@ -1,4 +1,3 @@
-# views/items/_index.html.erb
 <table>
   <thead>
     <tr>
@@ -11,16 +10,16 @@
   </thead>
 
   <tbody>
-    <%% @items.each do |item| %>
+    <% @items.each do |item| %>
       <tr>
-        <td><%%= item.title %></td>
-        <td><%%= item.description %></td>
-        <td><%%= item.owner %></td>
-        <td><%%= item.category_id %></td>
-        <td><%%= link_to 'Show', item %></td>
-        <td><%%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= item.title %></td>
+        <td><%= item.description %></td>
+        <td><%= item.owner %></td>
+        <td><%= item.category_id %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <%% end %>
+    <% end %>
   </tbody>
 </table>

@@ -1,12 +1,24 @@
-# views/items/search.html.erb
-<div>
-  <h1>Search</h1>
-    <%%= form_tag(do_search_items_path, method: "get") do %>
-      <div>
-        <label>Title</label>
-        <%%= text_field_tag(:title, "") %>
+<h1>Search</h1>
+<%= form_tag(do_search_items_path, method: "get", class: "form") do %>
+  <div class="row tbalign-items-center bg-primary text-light p-2">
+    <div class="col-sm-8">
+    <div class="row">
+      <div class="col">
+        <%= text_field_tag(:title, "", class: "form-control-sm", placeholder: "search for") %>
       </div>
-
-      <%%= submit_tag("Search") %>
-    <%% end %>
-</div>
+      <div class="col pt-1">
+        <label class="fg-light">Return: </label>
+        <%= select_tag(:match_no_match,
+        options_for_select(
+        [['only matching', "match"],
+          ['only non matching', "nomatch"]
+        ]), class: "form-control-sm") %>
+      </div>
+      <div class="col">
+        <%= submit_tag("Search", class: "btn btn-dark form-control-sm") %>
+      </div>
+    </div>
+    </div>
+  </div>
+<% end %>
+<%= render "index" %>

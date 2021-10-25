@@ -2,10 +2,14 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[show edit update destroy]
 
   def search
+    @items = Item.all
   end
 
   def do_search
-    @items = Item.where("title LIKE ?", "%#{params[:title]}%")
+    sql_string = "title LIKE ?"
+    sql_string = "title NOT LIKE ?" if params[:match_no_match] == 'nomatch'
+    @items = Item.where(sql_string, "%#{params[:title]}%")
+    render "search"
   end
 
   # GET /items or /items.json
