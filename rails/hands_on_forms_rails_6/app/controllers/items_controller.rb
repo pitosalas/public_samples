@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[show edit update destroy]
+  before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :set_comments, only: %i[ show ]
 
   def search
     @items = Item.all
@@ -72,6 +73,10 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_comments
+    @comments = @item.comments
   end
 
   # Only allow a list of trusted parameters through.

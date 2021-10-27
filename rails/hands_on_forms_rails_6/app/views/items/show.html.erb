@@ -20,5 +20,32 @@
   <%= @item.category_id %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<h1>Comments!</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Message</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.from %></td>
+        <td><%= comment.message %></td>
+        <td><%= comment.item_id %></td>
+        <td><%= link_to 'Show', item_comments_path(@item, comment) %></td>
+        <td><%= link_to 'Edit', edit_item_comment_path(@item, comment) %></td>
+        <td><%= link_to 'Destroy', item_comments_path(@item, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_item_path(@item), type: "button", class: "btn btn-secondary" %>
+<%= link_to 'Back', items_path, type:"button", class: "btn btn-secondary" %>
+<%= link_to 'Add comment', new_item_comment_path(@item), type:"button", class: "btn btn-secondary" %>

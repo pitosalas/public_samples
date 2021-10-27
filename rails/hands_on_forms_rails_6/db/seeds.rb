@@ -20,7 +20,7 @@ adjective = ["My favorite", "The perfect", "A great"]
 categories = [books, electronics, clothing, jewelry]
 
 puts "creating sample items"
-50.times do
+25.times do
   title = colors.sample + " " + clothingnames.sample
   description = adjective.sample + " " + title
   Item.create(title: title, description: description, owner: owners.sample, category: categories.sample)
