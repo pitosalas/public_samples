@@ -1,0 +1,2 @@
+class Nessage < ApplicationRecord
+end
