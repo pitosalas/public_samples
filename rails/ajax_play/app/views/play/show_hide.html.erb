@@ -1,0 +1,36 @@
+<style>
+  div.hidden {
+    opacity:0;
+  }
+  div.shrunk {
+    transform: scale(0);
+  }
+</style>
+<h1>Show Hide</h1>
+<p>
+  Demonstrate how to use Ajax to show and hide and otherwise manipulate static content, that is content that does not have to be regenerated on the server.
+</p>
+<br/>
+<div id='thing' style="transition: all 0.3s;">
+  <img src="https://nerdist.com/wp-content/uploads/2016/04/2001spaceodyssey_1.jpg", style="width: 25%;">
+</div>
+
+<h2>Simple hide and show</h2>
+<h3>Links</h3>
+<p>
+  <%= link_to("show", do_show_path, remote: true, method: :get) %>
+  <%= link_to("hide", do_hide_path, remote: true, method: :post) %>
+  <%= link_to("toggle", do_toggle_path, remote: true, method: :post) %>
+</p>
+
+<h3>Buttons</h3>
+<%= button_to("show", do_show_path, remote: true, method: :get) %>
+<%= button_to("hide", do_hide_path, remote: true) %>
+<%= button_to("toggle", do_toggle_path, remote: true) %>
+
+<h2> More interesting transitions!</h2>
+
+<%= link_to("fadeout", do_fadeout_path, remote: true, method: :post) %>
+<%= link_to("fadein", do_fadein_path, remote: true, method: :post) %>
+<%= link_to("shrink", do_shrink_path, remote: true, method: :post) %>
+<%= link_to("unshrink", do_unshrink_path, remote: true, method: :post) %>

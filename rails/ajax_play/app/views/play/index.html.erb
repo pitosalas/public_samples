@@ -1,0 +1,50 @@
+ <style>
+  div.hidden {
+    opacity:0;
+  }
+  div.shrunk {
+    transform: scale(0);
+  }
+</style>
+<div class="row">
+  <div class="col">
+    <h1>Rails and Javascript Low Level</h1>
+    <h2>Show Hide</h2>
+    <p>
+      Demonstrate how to use Ajax to show and hide and otherwise manipulate static content, that is content that does not have to be regenerated on the server.
+    </p>
+    <br/>
+    <div id='thing' style="transition: all 0.3s;">
+      <img src="https://nerdist.com/wp-content/uploads/2016/04/2001spaceodyssey_1.jpg", style="width: 50%;">
+    </div>
+  </div>
+</div>
+<div class="row  my-5">
+  <div class="col">
+    <h4>Links</h4>
+    <p>
+      <div class="btn-group">
+        <%= link_to "show", do_show_path, remote: true, method: :get, class: "btn btn-primary" %>
+        <%= link_to "hide", do_hide_path, remote: true, method: :post, class: "btn btn-secondary" %>
+        <%= link_to "toggle", do_toggle_path, remote: true, method: :post, class: "btn btn-success" %>
+      </p>
+    </div>
+  </div>
+  <div class="col">
+    <h4>Buttons</h4>
+    <div class="btn-group">
+      <%= button_to "show", do_show_path, remote: true, method: :get %>
+      <%= button_to "hide", do_hide_path, remote: true, method: :post %>
+      <%= button_to "toggle", do_toggle_path, remote: true, method: :post %>
+    </div>
+  </div>
+  <div class="col">
+    <h4> More transitions!</h4>
+    <div class="btn-group">
+      <%= link_to "fadeout", do_fadeout_path, remote: true, method: :post, class: "btn btn-success" %>
+      <%= link_to "fadein", do_fadein_path, remote: true, method: :post, class: "btn btn-success" %>
+      <%= link_to "shrink", do_shrink_path, remote: true, method: :post, class: "btn btn-success" %>
+      <%= link_to "unshrink", do_unshrink_path, remote: true, method: :post, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
