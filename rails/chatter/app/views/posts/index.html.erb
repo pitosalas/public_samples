@@ -1,20 +1,8 @@
 <div class="container">
   <h1>Chatter</h1>
   <p id="notice"><%= notice %></p>
-
   <%= render "form" %>
-
-  <% posts.each do |post| %>
-    <div class="card mb-2">
-    <div class="card-body">
-    <h5 class="card-title text-muted">
-    <%= post.username %>
-    <small>-<%= time_ago_in_words post.created_at %> ago</small>
-  </h5>
-  <div class="card-text lead mb-2"><%= post.body %></div>
-  <%= link_to "Repost (#{post.repost_count})", "#", class: "card-link" %>
-    <%= link_to "Like (#{post.repost_count})", "#", class: "card-link" %>
-    </div>
-    </div>
-    <% end %>
-    </div>
+  <div id="timeline">
+    <%= render partial: "post", collection: @posts %>
+  </div>
+</div>
