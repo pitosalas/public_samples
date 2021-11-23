@@ -1,0 +1,1 @@
+{"ast":null,"code":"var debugging = false;\nexport default {\n  get enabled() {\n    return debugging;\n  },\n\n  get disabled() {\n    return !debugging;\n  },\n\n  get value() {\n    return debugging;\n  },\n\n  set: function set(value) {\n    debugging = !!value;\n  },\n\n  set debug(value) {\n    debugging = !!value;\n  }\n\n};","map":null,"metadata":{},"sourceType":"module"}

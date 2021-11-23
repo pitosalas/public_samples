@@ -1,0 +1,1 @@
+{"ast":null,"code":"var activeElement;\nexport default {\n  get element() {\n    return activeElement;\n  },\n\n  set: function set(element) {\n    activeElement = element;\n  }\n};","map":null,"metadata":{},"sourceType":"module"}
