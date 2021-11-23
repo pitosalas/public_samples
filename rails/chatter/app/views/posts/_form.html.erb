@@ -1,8 +1,0 @@
-<%= form_with(model: @post, html: {class: "my-4"}) do |form| %>
-  <div class="form-group">
-    <%= form.text_area :body, placeholder: "Enter your message", class: "form-control", rows: 3 %>
-  </div>
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
-<% end %>
