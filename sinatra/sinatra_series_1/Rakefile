@@ -1,3 +1,0 @@
-require './app'
-require 'sinatra/activerecord/rake'
-require_relative './models/user'
