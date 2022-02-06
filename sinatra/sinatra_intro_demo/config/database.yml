@@ -1,13 +1,18 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: ar_demo
+  database: ar_demo_dev
+  pool: 2
+  
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: ar_demo_test
   pool: 2
   
 production:
   adapter: postgresql
   encoding: unicode
-  database: database_name
+  database: ar_demo_prod
   pool: 2
-  username: your_username
-  password: your_password
+  
