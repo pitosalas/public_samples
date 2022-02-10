@@ -1,4 +1,4 @@
-class CreateHirings < ActiveRecord::Migration[6.0]
+class CreateHirings < ActiveRecord::Migration[7.0]
   def change
     create_table :hirings do |t|
       t.references :student, null: false, foreign_key: true

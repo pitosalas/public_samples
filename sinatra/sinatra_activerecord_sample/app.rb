@@ -1,0 +1,7 @@
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'active_record'
+require_relative 'models/course.rb'
+require_relative 'models/student.rb'
+require_relative 'models/registration.rb'
+require_relative 'models/hiring.rb'
