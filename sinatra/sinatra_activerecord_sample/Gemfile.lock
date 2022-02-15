@@ -12,6 +12,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     concurrent-ruby (1.1.9)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     minitest (5.15.0)
@@ -40,6 +42,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  faker
   pg
   rake
   sinatra

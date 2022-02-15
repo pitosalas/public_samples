@@ -4,5 +4,4 @@ class Course < ActiveRecord::Base
 
   has_many :hirings
   has_many :teaching_assistants, through: :hirings, source: :student
-
 end
