@@ -9,19 +9,31 @@ class CurrentState
     @current = newval
   end
 
+  def self.balance
+    @balance
+  end
+
+  def self.balance= newval
+    @balance = newval
+  end
+
   def self.check(expd)
-    puts "Name: #{expd} CurrentState.current: \"#{@current}\" #{@current != expd ? "--->> RACE" : ""}"
+    puts "Name: #{expd} CurrentState.current: \"#{@current}\" #{@current == expd ? "" : "--->> RACE"}"
   end
 end
 
 setup("\nTheads")
+CurrentState.balance = 0
 t1 = Thread.new do
   CurrentState.current = "t1"
   COUNT.times do
     CurrentState.current = "t1" if rand > 0.5
+    bal = CurrentState.balance
+    sleep 0.1
+    CurrentState.balance = bal + 1
     CurrentState.check("t1")
-    sleep 1.0
   end
+  puts CurrentState.balance
 end
 
 t2 = Thread.new do
@@ -29,27 +41,39 @@ t2 = Thread.new do
   COUNT.times do
     CurrentState.current = "t2" if rand > 0.5
     CurrentState.check("t2")
-    sleep 0.75
+    bal = CurrentState.balance
+    sleep 0.1
+    CurrentState.balance = bal + 1
   end
+  puts CurrentState.balance
 end
 t1.join
 t2.join
+puts CurrentState.balance
 
 setup("\nProcesses")
+CurrentState.balance = 0
 fork do
   CurrentState.current = "t1"
   COUNT.times do
     CurrentState.current = "t1" if rand > 0.5
     CurrentState.check("t1")
-    sleep 1.0
+    bal = CurrentState.balance
+    sleep 0.1
+    CurrentState.balance = bal + 1
   end
+  puts CurrentState.balance
 end
 fork do
   CurrentState.current = "t2"
   COUNT.times do
     CurrentState.current = "t2" if rand > 0.5
     CurrentState.check("t2")
-    sleep 0.75
+    bal = CurrentState.balance
+    sleep 0.1
+    CurrentState.balance = bal + 1
   end
+  puts CurrentState.balance
 end
 Process.waitall
+puts CurrentState.balance
