@@ -5,4 +5,4 @@ number = 8_888_888
 puts "Parent #{Process.pid}"
 fork { puts "Child1 #{Process.pid}: #{range1.to_a.index(number)}" }
 fork { puts "Child2 #{Process.pid}: #{range2.to_a.index(number)}" }
-Process.wait
+# Process.wait
