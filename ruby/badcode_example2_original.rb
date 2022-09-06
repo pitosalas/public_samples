@@ -29,6 +29,7 @@ def ms(array)
 		if not array.include?(y) 
 			array2.append(y)
 		end
+    en
   #add the missing numbers
   add = 0
   array2.each{|z|
