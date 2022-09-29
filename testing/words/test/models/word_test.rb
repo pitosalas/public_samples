@@ -1,4 +1,4 @@
-require_relative "../test_helper"
+require "test_helper"
 
 class WordTest < ActiveSupport::TestCase
   test "simple invocation of word utils" do
@@ -14,5 +14,10 @@ class WordTest < ActiveSupport::TestCase
   test "if there is no word, then length should raise and error" do
     w = Word.create
     assert_raises { w.length }
+  end
+
+  test "should not save Word without an actual word" do
+    w = Word.new
+    assert !w.save, "Saved the post without a title"
   end
 end
