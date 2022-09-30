@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>StackUnderflow Questions</h1>
+<% if @unanswered.size == 0 %>
+<h3>No unanswered Questions</h3>
+<% else %>
+<div id="questions">
+<h3> Unanswered Questions </h3>
+  <% @unanswered.each do |question| %>
+    <%= render question %>
+    <p>
+      <%= link_to "Show this question", question %>
+    </p>
+  <% end %>
+  <% end %>
+</div>
+
+<% if @answered.size == 0 %>
+<h3>No Answered Questions</h3>
+<% else %>
+<div id="questions">
+<h3> Answered Questions </h3>
+  <% @answered.each do |question| %>
+    <%= render question %>
+    <p>
+      <%= link_to "Show this question", question %>
+    </p>
+  <% end %>
+  <% end %>
+</div>
+
+
+<%= link_to "New asked", new_question_path %>
