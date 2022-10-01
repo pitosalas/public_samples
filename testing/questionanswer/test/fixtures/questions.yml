@@ -2,12 +2,12 @@
 
 life_question:
   question: Whata is the answer to life the universe and everything?
-  answer: 44
 
 treasure_question:
   question: Where is the treasure buried?
-  answer: Under the statue of Brandeis
+
+unanswered_question:
+  question: Why is gold golden?
 
 invalid_question:
   question: 
-  answer: 

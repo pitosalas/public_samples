@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
-  scope :answered, -> { where.not(answer: nil) }
-  scope :unanswered, -> { where(answer: nil) }
+  has_many :answers
+  scope :answered, -> { where.associated(:answers) }
+  scope :unanswered, -> { includes(:answers).where(answers: {id: nil})}
 
   def valid_question
     the_question = ValidQuestion.new(question)

@@ -18,7 +18,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create question" do
     assert_difference("Question.count") do
-      post questions_url, params: {question: {answer: @good.answer, question: @good.question}}
+      post questions_url, params: {question: {question: @good.question}}
     end
 
     assert_redirected_to question_url(Question.last)
@@ -35,12 +35,13 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update question" do
-    patch question_url(@good), params: {question: {answer: @good.answer, question: @good.question}}
+    patch question_url(@good), params: {question: {question: @good.question}}
     assert_redirected_to question_url(@good)
   end
 
+  # Cant destroy question because it has an answer!
   test "should destroy question" do
-    assert_difference("Question.count", -1) do
+    assert_no_difference("Question.count") do
       delete question_url(@good)
     end
 
