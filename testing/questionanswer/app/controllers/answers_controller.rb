@@ -49,22 +49,27 @@ class AnswersController < ApplicationController
 
   # DELETE /answers/1 or /answers/1.json
   def destroy
-    @answer.destroy
-
     respond_to do |format|
-      format.html { redirect_to answers_url, notice: "Answer was successfully destroyed." }
+      if !@answer.comments.empty?
+        format.html { redirect_to answers_url, notice: "First delete all the comments" }
+      elsif @answer.destroy
+        format.html { redirect_to answers_url, notice: "Answer was successfully destroyed." }
+      else
+        format.html { redirect_to answers_url, notice: "Answer could not be destroyed." }
+      end
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
-    def set_answer
-      @answer = Answer.find(params[:id])
-    end
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def answer_params
-      params.require(:answer).permit(:body, :question_id)
-    end
+  def answer_params
+    params.require(:answer).permit(:body, :question_id)
+  end
 end
