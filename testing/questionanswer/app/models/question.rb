@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   has_many :answers
+  has_many :comments, through: :answers
 
   scope :answered, -> { where.associated(:answers) }
   scope :unanswered, -> { includes(:answers).where(answers: {id: nil})}
