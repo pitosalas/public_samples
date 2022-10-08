@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class AnswersTest < ApplicationSystemTestCase
   setup do
-    @answer = answers(:one)
+    @answer = answers(:no_idea)
   end
 
   test "visiting the index" do
@@ -38,6 +38,6 @@ class AnswersTest < ApplicationSystemTestCase
     visit answer_url(@answer)
     click_on "Destroy this answer", match: :first
 
-    assert_text "Answer was successfully destroyed"
+    assert_text "First delete all the answers"
   end
 end
