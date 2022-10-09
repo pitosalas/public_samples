@@ -3,5 +3,9 @@
       <div class="bg-light p-2">
         <%= answer.body %>
       </div>
+      <div class="btn-group btn-group-sm" role="group">
+        <%= link_to "Edit this answer", edit_answer_path(answer) , class: "btn btn-secondary m-1" %>
+        <%= link_to "Destroy this answer", answer, class: "btn btn-secondary m-1", method: :delete %>
+      </div>
     </p>
   <% end %>

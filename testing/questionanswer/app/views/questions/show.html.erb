@@ -11,3 +11,6 @@
 </div>
 
 <%= render partial: "answer_inline", locals: { question: @question}  %>
+<div class="btn-group btn-group-sm" role="group">
+  <%= link_to "Add an answer", new_answer_path(@question) , class: "btn btn-secondary m-1" %>
+</div>
