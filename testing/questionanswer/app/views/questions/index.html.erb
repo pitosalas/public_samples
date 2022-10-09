@@ -2,28 +2,20 @@
   <%= notice %>
 </p>
 
-<% if @unanswered.size == 0 %>
-  <h3>No unanswered Questions</h3>
-<% else %>
-<h3> Unanswered Questions </h3>
-  <% @unanswered.each do |question| %>
-    <%= render question %>
-    <p>
-      <%= link_to "Show this question", question %>
-    </p>
+<h3> Questions </h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Question</th>
+      <th scope="col">Answers</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+    <%= render partial: "question_row", locals: {question: question } %>
   <% end %>
-<% end %>
-
-<% if @answered.size == 0 %>
-  <h3>No Answered Questions</h3>
-<% else %>
-  <h3> Answered Questions </h3>
-    <% @answered.each do |question| %>
-      <%= render question %>
-      <p>
-        <%= link_to "Show this question", question %>
-      </p>
-    <% end %>
-<% end %>
+  </tbody>
+</table>
 
 <%= link_to "New Question", new_question_path %>
