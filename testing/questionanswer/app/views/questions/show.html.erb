@@ -1,11 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green">
+  <%= notice %>
+</p>
 
-<%= render @question %>
+<%= render partial: "question_inline", locals: { question: @question}  %>
 
-<div>
-  <%= link_to "Edit this question", edit_question_path(@question) %> |
-  <%= link_to "Back to questions", questions_path %>
-
-  <%= button_to "Destroy this question", @question, method: :delete %>
+<div class="btn-group btn-group-sm" role="group">
+  <%= link_to "Edit this question", edit_question_path(@question) , class: "btn btn-secondary m-1" %>
+  <%= link_to "Back to questions", questions_path, class: "btn btn-secondary m-1"  %>
+  <%= link_to "Destroy this question", @question, class: "btn btn-secondary m-1", method: :delete %>
 </div>
 
+<%= render partial: "answer_inline", locals: { question: @question}  %>

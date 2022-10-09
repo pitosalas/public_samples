@@ -38,6 +38,6 @@ class AnswersTest < ApplicationSystemTestCase
     visit answer_url(@answer)
     click_on "Destroy this answer", match: :first
 
-    assert_text "First delete all the answers"
+    assert_text "First delete all the comments"
   end
 end

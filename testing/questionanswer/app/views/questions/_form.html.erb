@@ -13,7 +13,12 @@
 
   <div>
     <%= form.label :question, style: "display: block" %>
-    <%= form.text_field :question %>
+    <%= form.text_field :question, size: 50 %>
+  </div>
+  
+  <div>
+    <%= form.label :question, style: "display: block" %>
+    <%= form.text_area :body, size: "50x10" %>
   </div>
   <div>
     <%= form.submit %>
