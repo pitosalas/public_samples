@@ -5,7 +5,7 @@
       </div>
       <div class="btn-group btn-group-sm" role="group">
         <%= link_to "Edit this answer", edit_question_answer_path(question, answer) , class: "btn btn-secondary m-1" %>
-        <%= link_to "Destroy this answer", question_answer_path(question, answer), class: "btn btn-secondary m-1", method: :delete %>
+        <%= button_to "Destroy this answer", question_answer_path(question, answer), class: "btn btn-secondary m-1", method: :delete %>
       </div>
     </p>
   <% end %>

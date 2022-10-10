@@ -56,8 +56,9 @@ class AnswersController < ApplicationController
 
   # DELETE /answers/1 or /answers/1.json
   def destroy
+    puts "**************************"
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.new(answer_params)
+    @answer = Answer.find(params[:id])
     respond_to do |format|
       if !@answer.comments.empty?
         format.html { redirect_to questions_url(@question), notice: "First delete all the comments" }
