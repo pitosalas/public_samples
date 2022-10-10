@@ -5,10 +5,7 @@
 <div id="answers">
   <% @answers.each do |answer| %>
     <%= render answer %>
-    <p>
-      <%= link_to "Show this answer", answer %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New answer", new_answer_path %>
+<%= link_to "New answer", new_question_answer_path(@question) %>

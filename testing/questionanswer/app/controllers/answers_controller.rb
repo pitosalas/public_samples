@@ -1,31 +1,36 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: %i[ show edit update destroy ]
-
   # GET /answers or /answers.json
   def index
-    @answers = Answer.all
+    @question = Question.find(params[:question_id])
+    @answers = @question.answers
   end
 
   # GET /answers/1 or /answers/1.json
   def show
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
   end
 
   # GET /answers/new
   def new
-    @answer = Answer.new
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new
   end
 
   # GET /answers/1/edit
   def edit
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
   end
 
   # POST /answers or /answers.json
   def create
-    @answer = Answer.new(answer_params)
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(answer_params)
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to answer_url(@answer), notice: "Answer was successfully created." }
+        format.html { redirect_to question_answer_url(@question, @answer), notice: "Answer was successfully created." }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,9 +41,11 @@ class AnswersController < ApplicationController
 
   # PATCH/PUT /answers/1 or /answers/1.json
   def update
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(answer_params)
     respond_to do |format|
       if @answer.update(answer_params)
-        format.html { redirect_to answer_url(@answer), notice: "Answer was successfully updated." }
+        format.html { redirect_to question_answer_url(@question, @answer), notice: "Answer was successfully updated." }
         format.json { render :show, status: :ok, location: @answer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,24 +56,21 @@ class AnswersController < ApplicationController
 
   # DELETE /answers/1 or /answers/1.json
   def destroy
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(answer_params)
     respond_to do |format|
       if !@answer.comments.empty?
-        format.html { redirect_to answers_url, notice: "First delete all the comments" }
+        format.html { redirect_to questions_url(@question), notice: "First delete all the comments" }
       elsif @answer.destroy
-        format.html { redirect_to answers_url, notice: "Answer was successfully destroyed." }
+        format.html { redirect_to questions_url(@question), notice: "Answer was successfully destroyed." }
       else
-        format.html { redirect_to answers_url, notice: "Answer could not be destroyed." }
+        format.html { redirect_to questions_url(@question), notice: "Answer could not be destroyed." }
       end
       format.json { head :no_content }
     end
   end
 
   private
-
-    # Use callbacks to share common setup or constraints between actions.
-  def set_answer
-    @answer = Answer.find(params[:id])
-  end
 
     # Only allow a list of trusted parameters through.
   def answer_params
