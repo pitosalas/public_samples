@@ -1,0 +1,22 @@
+<p style="color: green">
+  <%= notice %>
+</p>
+
+<h3> Questions </h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Question</th>
+      <th scope="col">Answers</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+    <%= render partial: "question_row", locals: {question: question } %>
+  <% end %>
+  </tbody>
+</table>
+<div class="btn-group btn-group-sm" role="group">
+  <%= link_to "New Question", new_question_path, class: "btn btn-secondary m-1" %>
+</div>

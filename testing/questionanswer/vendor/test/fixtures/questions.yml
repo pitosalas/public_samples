@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+life_question:
+  question: What is the answer to life the universe and everything?
+
+treasure_question:
+  question: Where is the treasure buried?
+
+unanswered_question:
+  question: Why is gold golden?
+
+invalid_question:
+  question: 

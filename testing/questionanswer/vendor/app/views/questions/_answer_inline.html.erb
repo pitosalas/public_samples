@@ -1,0 +1,11 @@
+  <% question.answers.each do |answer| %>
+    <p>
+      <div class="bg-light p-2">
+        <%= answer.body %>
+      </div>
+      <div class="btn-group btn-group-sm" role="group">
+        <%= link_to "Edit this answer", edit_question_answer_path(question, answer) , class: "btn btn-secondary m-1" %>
+        <%= button_to "Destroy this answer", question_answer_path(question, answer), class: "btn btn-secondary m-1", method: :delete %>
+      </div>
+    </p>
+  <% end %>

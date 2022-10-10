@@ -1,0 +1,13 @@
+<div id="<%= dom_id question %>">
+  <tr>
+    <th scope="row">
+      <%= link_to question.question, question %>
+    </th> 
+    <th scope="row">
+      <%= question.answers.size %>
+    </th> 
+    <th scope="row">
+      <%=link_to "Show", question %>
+    </th> 
+  </tr>
+<div>

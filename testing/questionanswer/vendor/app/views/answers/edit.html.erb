@@ -1,0 +1,11 @@
+<h1>Editing answer</h1>
+
+<%= render partial: "form" , locals: {question: @question, answer: @answer} %>
+
+  <br>
+<%= @question.id %>
+<%= @answer.id %>
+  <div>
+    <!-- <%= link_to "Show this answer" , question_answer_path(@answer, @question) %> |
+    <%= link_to "Back to question" , question_path(@question) %> -->
+  </div>

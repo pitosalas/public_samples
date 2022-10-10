@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+no_idea:
+  body: I have no idea!
+  question: life_question
+
+good_question:
+  body: That's a great question, the answer is 12
+  question: treasure_question

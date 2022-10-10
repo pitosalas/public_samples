@@ -1,0 +1,29 @@
+<p style="color: green">
+  <%= notice %>
+</p>
+
+<% if @unanswered.size == 0 %>
+  <h3>No unanswered Questions</h3>
+<% else %>
+<h3> Unanswered Questions </h3>
+  <% @unanswered.each do |question| %>
+    <%= render question %>
+    <p>
+      <%= link_to "Show this question", question %>
+    </p>
+  <% end %>
+<% end %>
+
+<% if @answered.size == 0 %>
+  <h3>No Answered Questions</h3>
+<% else %>
+  <h3> Answered Questions </h3>
+    <% @answered.each do |question| %>
+      <%= render question %>
+      <p>
+        <%= link_to "Show this question", question %>
+      </p>
+    <% end %>
+<% end %>
+
+<%= link_to "New Question", new_question_path %>

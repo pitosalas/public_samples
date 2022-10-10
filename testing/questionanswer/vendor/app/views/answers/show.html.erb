@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render partial: "form" , locals: {question: @question, answer: @answer} %>
+
+<%= render @answer %>
+
+<div>
+  <%= link_to "Edit this answer", edit_question_answer_path(@question, @answer) %> |
+  <%= link_to "Back to answers", question_answers_path %>
+
+  <%= button_to "Destroy this answer", question_answer_path(@question, @answer), method: :delete %>
+</div>
