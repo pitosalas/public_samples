@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   def index
     if logged_in?
       @users = User.all
+    else
+      redirect_to welcome_url, notice: "You have to be logged in!"
     end
   end
 

@@ -12,9 +12,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def login
+  def destroy
+    log_out
+    redirect_to users_path
   end
-
+  
   def welcome
   end
 end

@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+    <p>You are Logged in, <%= current_user.name %></p>
+    <%= button_to "Log out", logout_url, method: :get %>
+  <%else%>
+    <%= button_to "Login", '/login', method: :get%>
+    <%= button_to "Sign Up", '/users/new', method: :get%>
+  <% end %>
+
+
     <%= yield %>
   </body>
 </html>
