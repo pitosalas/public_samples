@@ -1,0 +1,11 @@
+<div>
+  <h1>Search</h1>
+    <%= form_tag(do_search_items_path, method: "get") do %>
+      <div>
+        <label>Title</label>
+        <%= text_field_tag(:title, "search...") %>
+      </div>
+
+      <%= submit_tag("Search") %>
+    <% end %>
+</div>
