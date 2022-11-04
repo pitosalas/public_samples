@@ -23,5 +23,5 @@ puts "creating sample items"
 20.times do
   title = colors.sample + " " + clothingnames.sample
   description = adjective.sample + " " + title
-  Item.create(title: title, description: description, owner: owners.sample, category: categories.sample)
+  Item.create(title: title, description: description, owner: owners.sample, category: categories.sample, available: [true, false].sample, condition: "used")
 end

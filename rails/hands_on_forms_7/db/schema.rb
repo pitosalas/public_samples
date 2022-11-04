@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_215408) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_03_221545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_215408) do
     t.string "description"
     t.text "owner"
     t.integer "category_id"
+    t.boolean "available"
+    t.text "condition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "itemxes", force: :cascade do |t|
+    t.text "dropdown"
+    t.text "radiobuttons"
+    t.boolean "checkbox"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

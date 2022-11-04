@@ -5,7 +5,8 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.string :description
       t.text :owner
       t.integer :category_id
-
+      t.boolean :available
+      t.text :condition
       t.timestamps
     end
   end

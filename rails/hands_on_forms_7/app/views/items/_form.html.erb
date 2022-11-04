@@ -11,27 +11,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, style: "display: block", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="mb-3">
+    <%= form.label :description, style: "display: block", class: "form-label"  %>
+    <%= form.text_field :description, class: "form-control"  %>
   </div>
 
-  <div>
-    <%= form.label :owner, style: "display: block" %>
-    <%= form.text_area :owner %>
+  <div class="mb-3">
+    <%= form.label :owner, style: "display: block", class: "form-label"  %>
+    <%= form.text_area :owner, class: "form-control"  %>
+  </div>
+  <div class="mb-3">
+    <%= form.radio_button :condition, "new" %>
+    <%= form.label :age_new, "Brand New", class: "form-label"  %>
+    <%= form.radio_button :condition, "used" %>
+    <%= form.label :age_used, "Previously Used", class: "form-label"  %>
   </div>
 
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id %>
+  <div class="mb-3 form-check">
+    <%= form.check_box :available, class: "form-check-input"  %>
+    <%= form.label :available, style: "display: block", class: "form-label" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.select :category_id, category_select_collection, {}, html_options =  { class: "form-select"} %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :itemxes
   resources :categories
   resources :items do
     collection do

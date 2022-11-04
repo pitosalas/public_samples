@@ -1,0 +1,32 @@
+<%= form_with(model: itemx) do |form| %>
+  <% if itemx.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(itemx.errors.count, "error") %> prohibited this itemx from being saved:</h2>
+
+      <ul>
+        <% itemx.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :dropdown, style: "display: block" %>
+    <%= form.text_area :dropdown %>
+  </div>
+
+  <div>
+    <%= form.label :radiobuttons, style: "display: block" %>
+    <%= form.text_area :radiobuttons %>
+  </div>
+
+  <div>
+    <%= form.label :checkbox, style: "display: block" %>
+    <%= form.check_box :checkbox %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
