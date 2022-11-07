@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def do_search
-    @items = Item.where("title LIKE ?", "%#{params[:title]}%")
+    @items = Item.where("title LIKE ? or owner like ? or description like ? ", "%#{params[:title]}%", "%#{params[:title]}%", "%#{params[:title]}%")
     render :index
   end
   

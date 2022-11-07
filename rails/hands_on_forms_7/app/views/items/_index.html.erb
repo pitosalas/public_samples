@@ -17,7 +17,7 @@
         <td><%= item.title %></td>
         <td><%= item.description %></td>
         <td><%= item.owner %></td>
-        <td><%= Category.find(item.category_id).title %></td>
+        <td><%= category_title(item) %></td>
         <td><%= item.condition %></td>
         <td><%= item.available %></td>
         <td><%= link_to 'Show', item %></td>
